@@ -19,7 +19,7 @@ An EGF file is comprised of three sections:
 
 
 ##### Example EGF File *(Point EGF)*
-```console
+```
 PT
 
 
