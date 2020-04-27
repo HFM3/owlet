@@ -62,7 +62,7 @@ Park Name, City, Pond, Fountain  # File attribute headers
 # (blank line 1)
 # (blank line 2)
 # (blank line 3)
-Post office Square, Boston, FALSE, TRUE  # First feature's attributes
+Post Office Square, Boston, FALSE, TRUE  # First feature's attributes
 -71.055631, 42.356243, 2  # First feature's coordinates (x, y, z)
 # (blank line 1)
 # (blank line 2)
