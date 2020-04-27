@@ -11,9 +11,9 @@ An EGF file contains all of the necessary components required to define geospati
 ### Overview
 An EGF file is comprised of three sections:
 
-1. Feature type declaration (point, line, polygon)
-2. Attribute headers
-3. Features: attributes & vertices *(coordinate sets)*
+1. **A Feature Type Declaration** (point, line, polygon)
+2. **Attribute Headers**
+3. **Features**: attributes & vertices *(coordinate sets)*
 
 *In an EGF file, each section is separated by three blank lines and the file ends with a single blank line.*
 
@@ -29,7 +29,7 @@ Park Name, City, Pond, Fountain
 
 
 Post office Square, Boston, FALSE, TRUE
--71.055631, 42.356243, 2
+42.356243, -71.055631, 2
 
 
 ```
@@ -40,17 +40,17 @@ PT  # Geometry type (PT = point)
 # (blank line 1)
 # (blank line 2)
 # (blank line 3)
-Park Name, City, Pond, Fountain  # File attribute headers
+Park Name, City, Pond, Fountain  # File's attribute headers
 # (blank line 1)
 # (blank line 2)
 # (blank line 3)
-Post Office Square, Boston, FALSE, TRUE  # First feature's attributes
--71.055631, 42.356243, 2  # First feature's coordinates (x, y, z)
+Post Office Square, Boston, FALSE, TRUE  # Attributes of first point feature
+42.356243, -71.055631, 2  # First points's coordinates (y, x, z)
 # (blank line 1)
 # (blank line 2)
 # (blank line 3)
 Boston Common, Boston, TRUE, TRUE  # Second feature's attributes
--71.066412,  42.355465, 10  # Second feature's coordinates (x, y, z)
+42.355465, -71.066412, 10  # Second feature's coordinates (y, x, z)
 # end file with blank line
 ```
 
@@ -107,13 +107,13 @@ Using the city parks example from the Attribute Headers section, the attributes 
 ##### Vertices
 Vertices are the coordinate sets that define the location, path, or shape of a feature.
 
-Coordinate sets and are defined in **X, Y, Z** *(Longitude, Latitude, Elevation)* order and are recorded as Decimal Degrees.
+Coordinate sets and are defined in **Y, X, Z** *(Latitude, Longitude, Elevation)* order and are recorded as Decimal Degrees.
 
 The coordinate set for Post Office Square (EGF Point) would be:
 
-X (LAT) | Y (LNG) | Z (ELV)
+Y (LNG) | X (LAT) | Z (ELV)
 -- | -- | --
--71.055631 | 42.356243 | 2
+42.356243 | -71.055631 | 2
 
 *In this example, elevation is ground height above mean sea level.*
 
@@ -124,7 +124,7 @@ To record Post Office Square as an EGF file, we need to bring the following toge
 2. **Headers** *(Park Name, City, Pond, Fountain)*
 3. **Geo-Feature** *(Attributes & Vertices)*
     - **Attributes** *(Post office Square, Boston, FALSE, TRUE)*
-    - **Vertex** *(-71.055631, 42.356243, 2)*
+    - **Vertex** *(42.356243, -71.055631, 2)*
 
 Remember to separate each section/feature by 3 blank lines and to end the file with a single blank line.
 
@@ -141,12 +141,279 @@ Park Name, City, Pond, Fountain
 
 
 Post Office Square, Boston, FALSE, TRUE
--71.055631, 42.356243, 2
+42.356243, -71.055631, 2
 
 
 ```
 
+
+
+
+
+
+
+# EGF Geometry Specifications
+
+## POINT
+
+### Defining a Point Feature
+A point feature is the pairing of one attribute row and one set of coordinate (y, x, z).
+
+###### Example Point Feature:
+```
+Post office Square, Boston, FALSE, TRUE  # Attributes
+42.356243, -71.055631, 2  # Coordinate set
+```
+
+###### Example Point EGF File
+```
+PT
+
+
+
+Park Name, City, Pond, Fountain
+
+
+
+Post office Square, Boston, FALSE, TRUE
+42.356243, -71.055631, 2
+
+
+```
+
+###### EGF Points File - Commented Example
+```
+PT  # Geometry type (PT = point)
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Park Name, City, Pond, Fountain  # File's attribute headers
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Post Office Square, Boston, FALSE, TRUE  # Attributes of first point feature
+42.356243, -71.055631, 2  # First points's coordinates (y, x, z)
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Boston Common, Boston, TRUE, TRUE  # Second feature's attributes
+42.355465, -71.066412, 10  # Second feature's coordinates (y, x, z)
+# end file with blank line
+```
+
+
+
+## LINE STRING
+### Defining a Line String Feature
+A line string feature is the pairing of one attribute row and multiple ordered sets of coordinates (y, x, z).
+
+*PT1 --> PT2 --> PT3 --> PT4 --> PT5*
+
+A minimum of two coordinate sets are required to define a line string.
+
+###### Example Line String Feature:
+```
+Post Office Square, A walk by the fountain
+42.356716, -71.055685, 0
+42.356587, -71.055769, 0
+42.356566, -71.055754, 0
+42.356539, -71.055746, 0
+42.356511, -71.055757, 0
+42.356495, -71.055790, 0
+42.356485, -71.055830, 0
+42.356389, -71.055842, 0
+42.356252, -71.055796, 0
+42.356046, -71.055642, 0
+42.355876, -71.055697, 0
+42.355828, -71.055758, 0
+```
+
+###### Example Line String EGF File
+```
+LS
+
+
+
+Park Name, Feature Description
+
+
+
+Post Office Square, A walk by the fountain
+42.356716, -71.055685, 0
+42.356587, -71.055769, 0
+42.356566, -71.055754, 0
+42.356539, -71.055746, 0
+42.356511, -71.055757, 0
+42.356495, -71.055790, 0
+42.356485, -71.055830, 0
+42.356389, -71.055842, 0
+42.356252, -71.055796, 0
+42.356046, -71.055642, 0
+42.355876, -71.055697, 0
+42.355828, -71.055758, 0
+
+
+```
+
+###### EGF Line String File - Commented Example
+```
+LS  # Geometry type (LS = Line String)
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Park Name, Feature Description   # File's attribute headers
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Post Office Square, A walk by the fountain  # Attributes of first line feature
+42.356716, -71.055685, 0  # Line's 1st coordinate set (y, x, z)
+42.356587, -71.055769, 0  # Line's 2nd coordinate set (y, x, z)
+42.356566, -71.055754, 0  # Line's 3rd coordinate set (y, x, z)
+42.356539, -71.055746, 0  # Line's 4th coordinate set (y, x, z)
+42.356511, -71.055757, 0  # Line's 5th coordinate set (y, x, z)
+42.356495, -71.055790, 0  # Line's 6th coordinate set (y, x, z)
+42.356485, -71.055830, 0  # Line's 7th coordinate set (y, x, z)
+42.356389, -71.055842, 0  # Line's 8th coordinate set (y, x, z)
+42.356252, -71.055796, 0  # Line's 9th coordinate set (y, x, z)
+42.356046, -71.055642, 0  # Line's 10th coordinate set (y, x, z)
+42.355876, -71.055697, 0  # Line's 11th coordinate set (y, x, z)
+42.355828, -71.055758, 0  # Line's 12th coordinate set (y, x, z)
+# end file with blank line
+```
+
+
+
+## Polygon
+### Defining a Polygon Feature
+A Polygon feature is the pairing of one attribute row, one outer ring, and any number of optional inner rings.
+
+**Outer Ring**: The shape of a polygon
+
+**Inner Ring**: A hole in the polygon
+
+Each polygon can only have a single outer ring, but can have any number of inner rings defined.
+
+**Polygon Structure**
+ - POLYGON
+  - OUTER RING
+  - INNER RING 1
+  - INNER RING 2
+
+Each ring of a polygon is composed of multiple ordered coordinate sets (y, x, z) exactly like a line string feature. A minimum of three coordinate sets are required to define a polygon ring. Rings are separated from each other by a single blank line. Any block of coordinates after the first block (outer ring), is considered to be an inner ring.
+
+###### Example Polygon Feature (No Holes):
+```
+Post Office Square, Boundary of Post Office Square
+42.356856, -71.055757, 0
+42.356080, -71.054976, 0
+42.355697, -71.055636, 0
+42.356003, -71.055941, 0
+42.356767, -71.056220, 0
+```
+
+###### Example Polygon Feature (1 Hole):
+```
+Post Office Square, Boundary of Post Office Square
+42.356856, -71.055757, 0
+42.356080, -71.054976, 0
+42.355697, -71.055636, 0
+42.356003, -71.055941, 0
+42.356767, -71.056220, 0
+
+42.355955, -71.055522, 0
+42.355894, -71.055458, 0
+42.355846, -71.055546, 0
+42.355908, -71.055615, 0
+```
+
+###### Example Polygon Feature (2 Holes):
+```
+Post Office Square, Boundary of Post Office Square
+42.356856, -71.055757, 0
+42.356080, -71.054976, 0
+42.355697, -71.055636, 0
+42.356003, -71.055941, 0
+42.356767, -71.056220, 0
+
+42.355955, -71.055522, 0
+42.355894, -71.055458, 0
+42.355846, -71.055546, 0
+42.355908, -71.055615, 0
+
+42.356089, -71.055312, 0
+42.356005, -71.055226, 0
+42.355969, -71.055288, 0
+42.356058, -71.055373, 0
+```
+
+
+###### Example Polygon EGF File
+```
+POLY
+
+
+
+Park Name, Feature Description
+
+
+
+Post Office Square, Boundary of Post Office Square with holes for buildings
+42.356856, -71.055757, 0
+42.356080, -71.054976, 0
+42.355697, -71.055636, 0
+42.356003, -71.055941, 0
+42.356767, -71.056220, 0
+
+42.355955, -71.055522, 0
+42.355894, -71.055458, 0
+42.355846, -71.055546, 0
+42.355908, -71.055615, 0
+
+42.356089, -71.055312, 0
+42.356005, -71.055226, 0
+42.355969, -71.055288, 0
+42.356058, -71.055373, 0
+
+
+```
+
+###### EGF Polygon - Commented Example
+```
+POLY  # Geometry type (POLY = Polygon)
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Park Name, Feature Description   # File's attribute headers
+# (blank line 1)
+# (blank line 2)
+# (blank line 3)
+Post Office Square, Boundary of Post Office Square with holes for buildings  # Attributes of first polygon feature
+42.356856, -71.055757, 0  # Polygon's outer ring - 1st coordinate set (y, x, z)
+42.356080, -71.054976, 0  # Polygon's outer ring - 2nd coordinate set (y, x, z)
+42.355697, -71.055636, 0  # Polygon's outer ring - 3rd coordinate set (y, x, z)
+42.356003, -71.055941, 0  # Polygon's outer ring - 4th coordinate set (y, x, z)
+42.356767, -71.056220, 0  # Polygon's outer ring - 5th coordinate set (y, x, z)
+# Blank line signifies that the following coordinate block is a hole in the polygon
+42.355955, -71.055522, 0  # Polygon's 1st inner ring - 1st coordinate set (y, x, z)
+42.355894, -71.055458, 0  # Polygon's 1st inner ring - 2nd coordinate set (y, x, z)
+42.355846, -71.055546, 0  # Polygon's 1st inner ring - 3rd coordinate set (y, x, z)
+42.355908, -71.055615, 0  # Polygon's 1st inner ring - 4th coordinate set (y, x, z)
+# Second hole in polygon
+42.356089, -71.055312, 0  # Polygon's 2nd inner ring - 1st coordinate set (y, x, z)
+42.356005, -71.055226, 0  # Polygon's 2nd inner ring - 2nd coordinate set (y, x, z)
+42.355969, -71.055288, 0  # Polygon's 2nd inner ring - 3rd coordinate set (y, x, z)
+42.356058, -71.055373, 0  # Polygon's 2nd inner ring - 4th coordinate set (y, x, z)
+# end file with blank line
+```
+
+
+
+
+
+[HOME](../README.md)
+
+
+
 ## Further Reading
-[EGF Geometry Specifications (Point, Line, Polygon)](egf_geometry.md)
 
 [Tutorial](egf_file_tut.md)
