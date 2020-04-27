@@ -131,7 +131,7 @@ Remember to separate each section/feature by 3 blank lines and to end the file w
 
 ##### PostOfficeSquare.egf
 
-```console
+```
 PT
 
 
