@@ -4,7 +4,7 @@
 
 Designed for field researchers, EGF a is file structure that allows geo-data to be easily recorded without traditional GIS software.
 
-An EGF file contains all of the necessary components required to define geospatial features without over-complicating it.
+An EGF file contains all of the necessary components required to define geospatial features— without overcomplicating it.
 
 ## EGF Structure
 

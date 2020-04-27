@@ -22,7 +22,7 @@ A Geospatial Python Package for Field Researchers
 ### Developed for Field Researchers
 Owlet is a Python library for interacting with EGF files and mapping them.
 
-EGF a is file structure that allows geo-data to be easily recorded without traditional GIS software. An EGF file contains all of the necessary components required to define geospatial features without over-complicating it.
+EGF a is file structure that allows geo-data to be easily recorded without traditional GIS software. An EGF file contains all of the necessary components required to define geospatial features— without overcomplicating it.
 
 ## EGF File Example
 
@@ -37,7 +37,7 @@ An EGF file is comprised of three sections:
 
 
 ##### Example of a point recorded in EGF
-```console
+```
 PT
 
 
