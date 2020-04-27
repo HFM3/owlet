@@ -14,7 +14,7 @@ A Geospatial Python Package for Field Researchers
 - GeoJSON export -- ![shield](https://img.shields.io/badge/-Upcoming-lightgrey)
 - CSV compatability -- ![shield](https://img.shields.io/badge/-Upcoming-lightgrey)
 - Google Earth (KML) export -- ![shield](https://img.shields.io/badge/-Upcoming-lightgrey)
-- Geospatial functions (Distance, Area, Convex hull, etc) -- ![shield](https://img.shields.io/badge/-Upcoming-lightgrey)
+- Geospatial functions (Distance, Area, Convex Hull, etc) -- ![shield](https://img.shields.io/badge/-Upcoming-lightgrey)
 
 
 ## Owlet and EGF
