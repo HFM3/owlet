@@ -8,10 +8,11 @@ setuptools.setup(
     version="0.0.1",
     author="HFM3",
     # author_email="author@example.com",
-    description="A geospatial Python package for field researchers",
+    description="A Geospatial Python Package for Field Researchers",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages = setuptools.find_packages(),
+    url='https://github.com/HFM3/owlet',
+    packages=setuptools.find_packages(),
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Science/Research",
