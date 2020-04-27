@@ -35,7 +35,7 @@ Post office Square, Boston, FALSE, TRUE
 ```
 
 ##### EGF Structure - Commented Example
-```python
+```
 PT  # Geometry type (PT = point)
 # (blank line 1)
 # (blank line 2)
