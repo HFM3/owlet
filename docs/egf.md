@@ -123,8 +123,8 @@ To record Post Office Square as an EGF file, we need to bring the following toge
 1. **Geometry Type** *(Point)*
 2. **Headers** *(Park Name, City, Pond, Fountain)*
 3. **Geo-Feature** *(Attributes & Vertices)*
-    - **Attributes** *(Post office Square, Boston, FALSE, TRUE)*
-    - **Vertex** *(42.356243, -71.055631, 2)*
+  - **Attributes** *(Post office Square, Boston, FALSE, TRUE)*
+  - **Vertex** *(42.356243, -71.055631, 2)*
 
 Remember to separate each section/feature by 3 blank lines and to end the file with a single blank line.
 
@@ -294,7 +294,7 @@ A Polygon feature is the pairing of one attribute row, one outer ring, and any n
 Each polygon can only have a single outer ring, but can have any number of inner rings defined.
 
 **Polygon Structure**
- - POLYGON
+- POLYGON
   - OUTER RING
   - INNER RING 1
   - INNER RING 2
