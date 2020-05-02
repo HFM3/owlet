@@ -411,9 +411,3 @@ Post Office Square, Boundary of Post Office Square with holes for buildings  # A
 
 
 [HOME](../README.md)
-
-
-
-## Further Reading
-
-[Tutorial](egf_file_tut.md)
