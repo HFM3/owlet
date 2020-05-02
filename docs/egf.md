@@ -2,7 +2,7 @@
 
 ## About
 
-Designed for field researchers, EGF a is file structure that allows geo-data to be easily recorded without traditional GIS software.
+Designed for field researchers, is a file structure created specifically for recording geo-data without traditional GIS software.
 
 An EGF file contains all of the necessary components required to define geospatial features— without overcomplicating it.
 
@@ -13,7 +13,7 @@ An EGF file is comprised of three sections:
 
 1. **A Feature Type Declaration** (point, line, polygon)
 2. **Attribute Headers**
-3. **Features**: attributes & vertices *(coordinate sets)*
+3. **Features**: attributes & coordinate sets
 
 *In an EGF file, each section is separated by three blank lines and the file ends with a single blank line.*
 
@@ -31,6 +31,10 @@ Park Name, City, Pond, Fountain
 Post office Square, Boston, FALSE, TRUE
 42.356243, -71.055631, 2
 
+
+
+Boston Common, Boston, TRUE, TRUE
+42.355465, -71.066412, 10
 
 ```
 
@@ -126,11 +130,13 @@ To record Post Office Square as an EGF file, we need to bring the following toge
   - **Attributes** *(Post office Square, Boston, FALSE, TRUE)*
   - **Vertex** *(42.356243, -71.055631, 2)*
 
-Remember to separate each section/feature by 3 blank lines and to end the file with a single blank line.
+**Remember**:
+- Separate each section and each feature by 3 blank lines
+- End the file with a single blank line
 
 
-##### PostOfficeSquare.egf
-
+#### PostOfficeSquare.egf
+*Type or paste the following into a text editor:*
 ```
 PT
 
@@ -143,10 +149,9 @@ Park Name, City, Pond, Fountain
 Post Office Square, Boston, FALSE, TRUE
 42.356243, -71.055631, 2
 
-
 ```
-
-
+#### Saving an EGF file
+When saving an EGF file from a text editor, replace '.txt' with '.egf'
 
 
 
@@ -177,7 +182,6 @@ Park Name, City, Pond, Fountain
 
 Post office Square, Boston, FALSE, TRUE
 42.356243, -71.055631, 2
-
 
 ```
 
@@ -251,7 +255,6 @@ Post Office Square, A walk by the fountain
 42.356046, -71.055642, 0
 42.355876, -71.055697, 0
 42.355828, -71.055758, 0
-
 
 ```
 
@@ -373,7 +376,6 @@ Post Office Square, Boundary of Post Office Square with holes for buildings
 42.356005, -71.055226, 0
 42.355969, -71.055288, 0
 42.356058, -71.055373, 0
-
 
 ```
 
