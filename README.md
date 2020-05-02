@@ -1,5 +1,7 @@
 <div align="center">
+<br><br>
   <img src="https://raw.githubusercontent.com/HFM3/owlet/master/images/owlet_horiz.png" width="60%"><br>
+  <br><br>
 </div>
 
 ---
