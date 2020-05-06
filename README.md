@@ -63,7 +63,7 @@ An EGF file is a '.txt' file renamed to '.egf'
 ```
 ###### MacOS / Linux
 ```python
->>> python3 pip install owlet
+>>> pip3 install owlet
 ```
 <!---
 ##### Install specific version
