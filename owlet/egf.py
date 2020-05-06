@@ -173,14 +173,14 @@ def decimal_degree_validate(coordinate):
     error_msg = f"Coordinate '{coordinate}' is not valid."
 
     if match is None:
-        raise InvalidEGF(error_msg)
+        raise ValueError(error_msg)
     else:
         valid_portion = match.group(0)
 
     if len(valid_portion) == len(coordinate):
         valid_coordinate = float(valid_portion)
     else:
-        raise InvalidEGF(error_msg)
+        raise ValueError(error_msg)
 
     return valid_coordinate
 
