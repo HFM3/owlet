@@ -24,7 +24,7 @@ An EGF file is comprised of three sections:
 3. **Features**: attributes & coordinate sets
 
 
-#### Example EFG file of two placemarks:
+#### Example EFG file containing two placemarks:
 ```
 PT
 
@@ -44,9 +44,9 @@ Boston Common, Boston, TRUE, TRUE
 
 ```
 
-*In an EGF file, each section / feature is separated by three blank lines and the file ends with a single blank line.*
+In an EGF file, each section / feature is separated by three blank lines and the file ends with a single blank line.
 
-*An EGF file is a '.txt' file renamed to '.egf'*
+An EGF file is a '.txt' file renamed to '.egf'
 
 [Full EGF Documentation](https://github.com/HFM3/owlet/blob/master/docs/egf.md)
 
@@ -87,7 +87,7 @@ my_shape = owlet.egf_read(file_path)
 
 ```
 
-### Converting EGF file to Other Formats
+### Converting an EGF File to Other Formats
 
 ###### CSV
 ```python
