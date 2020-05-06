@@ -4,7 +4,7 @@ Functions that process, validate, and convert EGF files into GCA objects.
 """
 
 from re import search, split
-from owlet.file_actions import str_file_read as et
+from owlet.file_actions import str_file_read as str_file_read
 from owlet.gca import GCA, valid_geom_types
 
 __all__ = ["egf_read"]
@@ -209,7 +209,7 @@ def attributes_validate(attr_row, headers):
     return attr_row
 
 
-def point_to_gca(geom_type, headers, features):
+def point_to_gca_components(geom_type, headers, features):
     """
     Converts a split 'PT' EGF file into a GCA object.
 
@@ -228,8 +228,8 @@ def point_to_gca(geom_type, headers, features):
 
     Returns
     -------
-    Point
-        GCA Point object
+    collection
+        GCA components (gca_type, gca_coordinates, gca_attributes)
     """
 
     gca_type = geom_type
@@ -248,14 +248,14 @@ def point_to_gca(geom_type, headers, features):
                 xyz_coord_set = [lng, lat, z]
                 gca_coordinates.append(xyz_coord_set)
             else:
-                raise InvalidEGF(f"Encountered and invalid line: '{file_line}'")
+                raise InvalidEGF(f"Encountered an invalid line: '{file_line}'")
 
-    gca = GCA(gca_type, gca_coordinates, gca_attributes)
+    gca = (gca_type, gca_coordinates, gca_attributes)
 
     return gca
 
 
-def linestring_to_gca(geom_type, headers, features):
+def linestring_to_gca_components(geom_type, headers, features):
     """
     Converts a split 'LS' EGF file into a GCA object.
 
@@ -273,8 +273,8 @@ def linestring_to_gca(geom_type, headers, features):
 
     Returns
     -------
-    LineSting
-        GCA LineString object
+    collection
+        GCA components (gca_type, gca_coordinates, gca_attributes)
 
     """
 
@@ -295,15 +295,15 @@ def linestring_to_gca(geom_type, headers, features):
                 xyz_coord_set = [lng, lat, z]
                 ls_coord_sets.append(xyz_coord_set)
             else:
-                raise InvalidEGF(f"Encountered and invalid line: '{file_line}'")
+                raise InvalidEGF(f"Encountered an invalid line: '{file_line}'")
         gca_coordinates.append(ls_coord_sets)
 
-    gca = GCA(gca_type, gca_coordinates, gca_attributes)
+    gca = (gca_type, gca_coordinates, gca_attributes)
 
     return gca
 
 
-def polygon_to_gca(geom_type, headers, features):
+def polygon_to_gca_components(geom_type, headers, features):
     """
     Converts a split 'POLY' EGF file into a GCA object.
 
@@ -321,8 +321,8 @@ def polygon_to_gca(geom_type, headers, features):
 
     Returns
     -------
-    Polygon
-        GCA Polygon object
+    collection
+        GCA components (gca_type, gca_coordinates, gca_attributes)
 
     """
 
@@ -350,7 +350,7 @@ def polygon_to_gca(geom_type, headers, features):
                 polygon_rings.append(ring_coord_sets)
                 ring_coord_sets = list()
             else:
-                raise InvalidEGF(f"Encountered and invalid line: '{line}'")
+                raise InvalidEGF(f"Encountered an invalid line: '{line}'")
 
             # if end of feature
             if (ln_num + 1) == feature_line_count:
@@ -359,7 +359,7 @@ def polygon_to_gca(geom_type, headers, features):
                 gca_coordinates.append(polygon_rings)
                 polygon_rings = list()
 
-    gca = GCA(gca_type, gca_coordinates, gca_attributes)
+    gca = (gca_type, gca_coordinates, gca_attributes)
 
     return gca
 
@@ -380,7 +380,7 @@ def egf_read(file_path):
 
     """
 
-    content_str = et(file_path)
+    content_str = str_file_read(file_path)
 
     if validate(content_str) is True:
         sections = section_split(content_str)
@@ -388,11 +388,14 @@ def egf_read(file_path):
         geom_type = sections[0]
 
         if geom_type == 'PT':
-            return point_to_gca(*sections)
+            components = point_to_gca_components(*sections)
+            return GCA(*components)
         elif geom_type == 'LS':
-            return linestring_to_gca(*sections)
+            components = linestring_to_gca_components(*sections)
+            return GCA(*components)
         elif geom_type == 'POLY':
-            return polygon_to_gca(*sections)
+            components = polygon_to_gca_components(*sections)
+            return GCA(*components)
         else:
             raise InvalidEGF(f"'{geom_type}' not recognized")
     else:

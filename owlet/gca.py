@@ -26,7 +26,7 @@ valid_geom_types = ('PT', 'LS', 'POLY')
 
 class GCA:
     """
-    Creates aGCA Object
+    Creates a GCA Object
 
     Attributes
     ----------
