@@ -81,7 +81,7 @@ class GCA:
         return "Point()"
 
     def __str__(self):
-        description = f"'{self.geometry_type}' GCA object containing {len(self)} feature(s) with the following attributes: {self.attributes}"
+        description = f"'{self.geometry_type}' GCA object containing {len(self)} feature(s) with the following attributes: {self.headers}"
         return description
 
     def __len__(self):
@@ -127,10 +127,11 @@ class GCA:
             egf_str += ', '.join(self.headers)
 
             for ft in features:
+                lng, lat, elev = ft[1][:3]
                 egf_str += "\n" * 4
                 egf_str += ', '.join(ft[0])
                 egf_str += "\n"
-                egf_str += ', '.join(str(coord) for coord in ft[1])
+                egf_str += ', '.join(str(coord) for coord in [lat, lng, elev])
             egf_str += "\n"
 
             return egf_str
@@ -159,8 +160,9 @@ class GCA:
                 egf_str += ', '.join(ft[0])
 
                 for coord_set in ft[1]:
+                    lng, lat, elev = coord_set[:3]
                     egf_str += "\n"
-                    egf_str += ', '.join(str(coord) for coord in coord_set)
+                    egf_str += ', '.join(str(coord) for coord in [lat, lng, elev])
 
             egf_str += "\n"
 
@@ -181,8 +183,7 @@ class GCA:
 
             egf_str += str(self.geometry_type)
             egf_str += "\n" * 4
-            print(self.attributes)
-            egf_str += ', '.join(self.attributes)
+            egf_str += ', '.join(self.headers)
 
             for ft in self.features:
                 egf_str += "\n" * 4
@@ -192,8 +193,9 @@ class GCA:
                     if rg_num > 0:
                         egf_str += "\n"
                     for coord_set in ring:
+                        lng, lat, elev = coord_set[:3]
                         egf_str += "\n"
-                        egf_str += ', '.join(str(coord) for coord in coord_set)
+                        egf_str += ', '.join(str(coord) for coord in [lat, lng, elev])
 
             egf_str += "\n"
 
