@@ -23,6 +23,7 @@ setuptools.setup(
         "Natural Language :: English",
     ],
     python_requires='>=3.8',
+    # install_requires=['strix']
 )
 
 # https://github.com/pypa/sampleproject/blob/master/setup.py
