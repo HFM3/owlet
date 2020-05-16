@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="owlet",
-    version="0.6.1",
+    version="0.7.0",
     author="HFM3",
     # author_email="author@example.com",
     description="A Geospatial Python Package for Field Researchers",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/HFM3/owlet',
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
@@ -23,6 +23,7 @@ setuptools.setup(
         "Natural Language :: English",
     ],
     python_requires='>=3.8',
+    install_requires=['strix>=0.6']
 )
 
 # https://github.com/pypa/sampleproject/blob/master/setup.py
