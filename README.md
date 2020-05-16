@@ -84,7 +84,7 @@ When writing a new Python file, begin by importing Owlet at the top of the file.
 import owlet
 
 ```
-#### Reading an EGF file
+### Reading an EGF file
 To read an EGF file, begin by saving the path of the EGF file to a variable.
 
 Then pass the variable to the **read_egf()** function. Since the function is a part of the Owlet Python package, the function is called by typing **owlet.** before the function name - e.g. **owlet.read_egf()**
@@ -105,7 +105,7 @@ my_shape = owlet.read_egf("folder/BostonParks.egf")
 
 ```
 
-#### Visualizing an EGF file
+### Visualizing an EGF file
 
 To visualize **my_shape** call the **visualize()** function and pass it **my_shape**.
 
@@ -118,10 +118,10 @@ Upon **visualize()** being executed, the computer's default web browser will ope
 
 ![GitHub Logo](images/readme/pt_preview.png)
 
-#### Converting an EGF File to Other Formats
+## Converting an EGF File to Other Formats
 To use and interact with the data stored within an EGF file outside of Owlet, the data can be exported as a different file format. Owlet offers a few different export options.
 
-##### GeoJSON
+### GeoJSON
 To use the EGF data with other GIS software packages, Owlet provides a GeoJSON export option.
 
 To export data in GeoJSON format, first save the export file path to a variable. Notice that the file name and file extension of the new file to be created is included in the path.
@@ -135,7 +135,7 @@ owlet.write_geojson(out_file, my_shape)
 ```
 Upon **write_geojson()** being executed, a file will be created at the path location specified. The new GeoJSON file can be loaded, viewed, and manipulated by many common GIS programs.
 
-###### Reading an EGF file and Writing it to a GeoJson File - Complete Script
+#### Reading an EGF file and Writing it to a GeoJson File - Complete Script
 ```python
 import owlet
 
@@ -147,7 +147,7 @@ my_shape = owlet.read_egf(in_file)
 owlet.write_geojson(out_file, my_shape)
 ```
 
-##### CSV
+### CSV
 If viewing the data stored within an EGF file in a tabular format is desired, the **write_csv()** function can be used is the same way as the **write_geojson()** function.
 
 To export data in CSV format, first save the export file path to a variable. Notice that the file name and file extension of the new file to be created is included in the path.
@@ -179,7 +179,7 @@ For example, a **State** attribute could be added to each record of the table.
 As long as the **GEOMETRY_PT** column is not manipulated, the CSV file can be loaded back in to Owlet.
 
 
-###### Loading CSV in to Owlet
+**Loading CSV in to Owlet**
 ```python
 in_file = "path/to/file/MyShape.csv"
 
@@ -198,7 +198,7 @@ print(my_shape)
 ```
 The above line informs us that **my_shape** is a **PT** (Point) file that contains **2 features** that have **Park Name, City, State, Pond,** and **Fountain** as attributes. We can see that **State** was added and loaded correctly. _"GCA object" refers to the internal format that Owlet uses to store geometry._
 
-###### Reading an EGF file and Writing it to a CSV File - Complete Script
+#### Reading an EGF file and Writing it to a CSV File - Complete Script
 ```python
 import owlet
 
@@ -211,7 +211,7 @@ owlet.write_csv(out_file, my_shape)
 ```
 
 
-##### Google Earth KML
+### Google Earth KML
 Owlet can also write KML files for use with Google Earth. Owlet leverages the KML format's "ExtendedData" feature which makes the KMLs exported with Owlet import cleanly into QGIS.
 
 The **write_kml()** function takes multiple arguments:
@@ -257,7 +257,7 @@ out_file = "folder/MyShape.kml"
 owlet.write_kml(out_file, my_shape, 'Park Name', 'Parks', 'Parks near Downtown Boston', 'rtg')
 ```
 
-###### Reading an EGF file and Writing it to a KML File - Complete Script
+#### Reading an EGF file and Writing it to a KML File - Complete Script
 ```python
 import owlet
 
