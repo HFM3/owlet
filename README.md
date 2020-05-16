@@ -115,6 +115,7 @@ owlet.visualize(my_shape)
 Upon **visualize()** being executed, the computer's default web browser will open and provide a preview of **my_shape** using the webpage [geojson.io](http://geojson.io)
 
 **Both points from the EGF file are displayed on the map after running _owlet.visualize(my_shape)_**
+
 ![GitHub Logo](images/readme/pt_preview.png)
 
 #### Converting an EGF File to Other Formats
