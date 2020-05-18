@@ -107,7 +107,7 @@ my_shape = owlet.read_egf("folder/BostonParks.egf")
 
 ### Visualizing an EGF file
 
-To visualize **my_shape** call the **visualize()** function and pass it **my_shape**.
+To visualize **my_shape**, call the **visualize()** function and pass **my_shape** to it.
 
 ```python
 owlet.visualize(my_shape)
