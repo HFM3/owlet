@@ -116,15 +116,15 @@ Upon **visualize()** being executed, the computer's default web browser will ope
 
 **Both points from the EGF file are displayed on the map after running _owlet.visualize(my_shape)_**
 
-![GitHub Logo](images/readme/pt_preview.png)
+![EGF Point Visualization](https://raw.githubusercontent.com/HFM3/owlet/master/images/readme/pt_preview.png)
 
 **EGF Files also support linestrings for mapping paths**
 
-![GitHub Logo](images/readme/ls_preview.png)
+![EGF Linestring Visualization](https://raw.githubusercontent.com/HFM3/owlet/master/images/readme/ls_preview.png)
 
 **Polygons are also supported by EGF**
 
-![GitHub Logo](images/readme/poly_preview.png)
+![EGF Polygon Visualization](https://raw.githubusercontent.com/HFM3/owlet/master/images/readme/poly_preview.png)
 
 ## Converting an EGF File to Other Formats
 To interact with the data from an EGF file outside of Owlet, the data can be exported to a different format. Owlet offers a few different export options.
