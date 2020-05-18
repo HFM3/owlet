@@ -56,7 +56,7 @@ To install owlet, type one of the following commands into the terminal or comman
 
 ###### Windows
 ```python
->>> py -m pip install  owlet
+>>> py -m pip install owlet
 ```
 ###### MacOS / Linux
 ```python
@@ -214,7 +214,7 @@ print(my_shape)
 ```
 'PT' GCA object containing 2 feature(s) with the following attributes: ['Park Name', 'City', 'State', 'Pond', 'Fountain']
 ```
-The above line informs us that **my_shape** is a **PT** (Point) file that contains **2 features** that each have **Park Name, City, State, Pond,** and **Fountain** as attributes. We can see that the **State** attribute was added and loaded correctly. _"GCA object" refers to the internal format that Owlet uses to store geometry._
+The above line reveals that **my_shape** is a **PT** (Point) file that contains **2 features** that each have **Park Name, City, State, Pond,** and **Fountain** as attributes. _"GCA object" refers to the internal format that Owlet uses to store geometry._
 
 #### Reading an EGF file and Writing it to a CSV File - Complete Script
 ```python
