@@ -151,7 +151,7 @@ in_file = "path/to/file/MyShape.json"
 my_shape = owlet.read_geojson(in_file)
 
 ```
-**Note:** Owlet has the ability to read GeoJSON files where each feature is of the same geometry type and every feature is contained within a "FeatureClass" (QGIS exports GeoJson files in this format). Owlet supports Point, LineString, and Polygon GeoJSON features only. GeoJSON files may have either _.json_ or _.geojson_ file extensions.
+**Note:** Owlet has the ability to read GeoJSON files where each feature is of the same geometry type and every feature is contained within a "FeatureClass" (QGIS exports GeoJson files in this format). Owlet supports Point, LineString, and Polygon GeoJSON features only. A GeoJSON file may have either _.json_ or _.geojson_ as its file extension.
 
 #### Reading an EGF file and Writing it to a GeoJson File - Complete Script
 ```python
