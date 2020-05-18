@@ -79,7 +79,7 @@ POLYGON | POLY
 Attribute headers are the "titles" to the attributes of every feature within the EGF file.
 
 Consider an EGF file that marks several parks within a city. The headers could be:
-- **Park Name**: name of park
+- **Park Name**: Name of park
 - **City**: City that the park is in
 - **Pond**: Does the park have a pond?
 - **Fountain**: Does the park have a fountain?
@@ -211,9 +211,9 @@ Boston Common, Boston, TRUE, TRUE  # Second feature's attributes
 ### Defining a Line String Feature
 A line string feature is the pairing of one attribute row and multiple ordered sets of coordinates (y, x, z).
 
-*PT1 --> PT2 --> PT3 --> PT4 --> PT5*
+**Line = PT1 --> PT2 --> PT3 --> PT4 --> PT5**
 
-A minimum of two coordinate sets are required to define a line string.
+A minimum of two coordinate sets are required to define a linestring.
 
 ###### Example Line String Feature:
 ```
