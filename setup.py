@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="owlet",
-    version="0.7.2",
+    version="0.8.0",
     author="HFM3",
     # author_email="author@example.com",
     description="A Geospatial Python Package for Field Researchers",
@@ -23,7 +23,7 @@ setuptools.setup(
         "Natural Language :: English",
     ],
     python_requires='>=3.8',
-    install_requires=['strix>=0.6.1']
+    install_requires=['strix>=0.7']
 )
 
 # https://github.com/pypa/sampleproject/blob/master/setup.py
