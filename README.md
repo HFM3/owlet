@@ -143,6 +143,16 @@ owlet.write_geojson(out_file, my_shape)
 ```
 Upon **write_geojson()** being executed, a _.json_ file will be created at the location specified by the path defined by the **out_file** variable. The new GeoJSON file can be loaded, viewed, and manipulated by many common GIS programs.
 
+**Loading GeoJSON into Owlet**
+
+```python
+in_file = "path/to/file/MyShape.json"
+
+my_shape = owlet.read_geojson(in_file)
+
+```
+**Note:** Owlet has the ability to read GeoJSON files where each feature is of the same geometry type and every feature is contained within a "FeatureClass" (QGIS exports GeoJson files in this format). Owlet supports Point, LineString, and Polygon GeoJSON features only. GeoJSON files may have either _.json_ or _.geojson_ file extensions.
+
 #### Reading an EGF file and Writing it to a GeoJson File - Complete Script
 ```python
 import owlet
@@ -187,7 +197,7 @@ For example, a **State** attribute could be added to each record of the table.
 As long as the **GEOMETRY_PT** column is not manipulated, the CSV file can be loaded back in to Owlet.
 
 
-**Loading CSV in to Owlet**
+**Loading CSV into Owlet**
 ```python
 in_file = "path/to/file/MyShape.csv"
 
