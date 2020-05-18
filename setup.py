@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="owlet",
-    version="0.8.0",
+    version="0.8.1",
     author="HFM3",
     # author_email="author@example.com",
     description="A Geospatial Python Package for Field Researchers",
